@@ -1,0 +1,120 @@
+import { Environment } from "@react-three/drei";
+import { MurosServicio } from "../assets/models/cafeteria/Muros-servicio";
+import { Piso } from "../assets/models/cafeteria/Piso";
+import { Pilares } from "../assets/models/cafeteria/pilares-transformed";
+import { TerrazaPiso } from "../assets/models/cafeteria/Terraza-piso";
+import { Techo } from "../assets/models/cafeteria/Techo";
+import { TechoDos } from "../assets/models/cafeteria/Techo2";
+import { Ventanales } from "../assets/models/cafeteria/Ventanales";
+import { VentanasChicas } from "../assets/models/cafeteria/Ventanas-chicas";
+import { RigidBody } from "@react-three/rapier";
+import { PisoExterior } from "../assets/models/cafeteria/Piso-exterior";
+import { ColEscalera1 } from "../assets/models/cafeteria/COL_ESCALERA1";
+import { ColEscalera2 } from "../assets/models/cafeteria/COL_ESCALERA2";
+import { ColPiso1 } from "../assets/models/cafeteria/COL_PISO1";
+import { ColPiso2 } from "../assets/models/cafeteria/COL_PISO2";
+import { ColPiso3 } from "../assets/models/cafeteria/COL_PISO3";
+import { ColRamp1 } from "../assets/models/cafeteria/COL_RAMPA1";
+import { ColRamp2 } from "../assets/models/cafeteria/COL_RAMPA2";
+import { ColPerimetro } from "../assets/models/cafeteria/COL_PERIMETRO";
+import { MuroFrente } from "../assets/models/cafeteria/Muros-frente";
+import { MuroLateral } from "../assets/models/cafeteria/Muros-lateral";
+import { MuroTrasero } from "../assets/models/cafeteria/Muros-trasero";
+import { MuroTrasero2 } from "../assets/models/cafeteria/Muros-trasero2";
+import { Barandal1 } from "../assets/models/cafeteria/Barandal1";
+import { Barandal2 } from "../assets/models/cafeteria/Barandal2";
+import { Barandal3 } from "../assets/models/cafeteria/Barandal3";
+import { Barandal4 } from "../assets/models/cafeteria/Barandal4";
+import SillasMesa from "./grupos-3d/SillasMesa";
+import { Estufa } from "../assets/models/mobiliario/Estufa";
+import { BarraGranito } from "../assets/models/mobiliario/BarraGranito";
+import { BarraCocina } from "../assets/models/mobiliario/BarraCocina";
+import { MuroCocina } from "../assets/models/cafeteria/Muro-cocina";
+import { PuertaServicio } from "../assets/models/cafeteria/PuertaServicio";
+import { Refri } from "../assets/models/mobiliario/Refri";
+import { Lavabo } from "../assets/models/mobiliario/Lavabo";
+import { Plafon } from "../assets/models/mobiliario/Plafon";
+import { Tanque } from "../assets/models/mobiliario/Tanque";
+import { CajaLuz } from "../assets/models/mobiliario/CajaLuz";
+import { PilaresServicio } from "../assets/models/cafeteria/Pilares-servicio";
+import { Jardinera } from "../assets/models/mobiliario/Jardinera";
+
+const Scene = () => {
+  return (
+    <>
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[5, 5, 5]} intensity={1} castShadow />
+      <Environment
+        preset="forest"
+        background
+        backgroundBlurriness={0.9}
+        backgroundIntensity={0.7}
+        near={0.1}
+        far={100}
+        ground={{
+          height: -18,
+          radius: 150, 
+          scale: 25, 
+        }}
+      />
+      {/* CONTRUCCIÓN CAFETERÍA VISIBLE*/}
+      <Piso />
+      <Techo />
+      <Ventanales />
+      <VentanasChicas />
+      <TechoDos />
+      <TerrazaPiso />
+      <PisoExterior />
+      <Barandal1 />
+      <Barandal2 />
+      <Barandal3 />
+      <Barandal4 />
+      <Estufa />
+      <BarraGranito />
+      <PuertaServicio />
+      <Refri />
+      <Lavabo />
+      <Plafon />
+      <Tanque />
+      <CajaLuz />
+      <PilaresServicio />
+      <Jardinera />
+
+      {/* GRUPOS DE OBJETOS*/}
+      <group position={[0.2, 0, 0]}>
+        <SillasMesa position={[-2.3, 0, 1.4]} />
+        <SillasMesa position={[-4.2, 0, 1.4]} />
+        <SillasMesa position={[-2.3, 0, -1.1]} />
+        <SillasMesa position={[-4.2, 0, -1.1]} />
+        <SillasMesa position={[-2.3, 0, -3.6]} />
+        <SillasMesa position={[-4.2, 0, -3.6]} />
+      </group>
+
+      {/* COLISIONES STATIC VISIBLES*/}
+      <RigidBody type="fixed" position={[0, -0.05, 0]} colliders="trimesh">
+        <MurosServicio />
+        <MuroFrente />
+        <MuroLateral />
+        <MuroTrasero />
+        <MuroTrasero2 />
+        <Pilares />
+        <BarraCocina />
+        <MuroCocina />
+      </RigidBody>
+
+      {/* COLISIONES STATIC INVISIBLES */}
+      <RigidBody type="fixed" position={[0, -0.1, 0]} colliders="trimesh">
+        <ColPerimetro />
+        <ColEscalera1 />
+        <ColEscalera2 />
+        <ColPiso1 />
+        <ColPiso2 />
+        <ColPiso3 />
+        <ColRamp1 />
+        <ColRamp2 />
+      </RigidBody>
+    </>
+  );
+};
+
+export default Scene;
