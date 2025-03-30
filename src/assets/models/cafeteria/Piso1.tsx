@@ -1,10 +1,8 @@
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
-const path = "../../../../public/models";
-
 export function Piso() {
-  const { nodes, materials} = useGLTF(`${path}/cafeteria/piso01.glb`)
+  const { nodes, materials} = useGLTF(`/models/cafeteria/piso01.glb`)
   return (
     <group dispose={null}>
         <mesh
@@ -18,4 +16,4 @@ export function Piso() {
   );
 }
 
-useGLTF.preload(`${path}/cafeteria/piso01.glb`)
+useGLTF.preload(`/models/cafeteria/piso01.glb`)

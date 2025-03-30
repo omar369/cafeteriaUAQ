@@ -7,7 +7,7 @@ Files: .\muros.glb [99.85MB] > C:\Users\UsX\Documents\React_templates\arqui-proj
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
-const path = "../../../../public/models";
+const path = "/models";
 
 export function Muros() {
   const { nodes, materials } = useGLTF(`${path}/cafeteria/muros.glb`);

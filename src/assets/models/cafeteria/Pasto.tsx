@@ -1,7 +1,7 @@
 import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 
-const path = "../../../../public/env";
+const path = "/env";
 
 export function Pasto() {
   const { nodes, materials } = useGLTF(`${path}/pasto.glb`)

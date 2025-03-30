@@ -2,10 +2,8 @@ import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
 
-const path = "../../../../public/models";
-
 export function Barandal1() {
-  const { nodes, materials } = useGLTF(`${path}/cafeteria/barandal1.glb`)
+  const { nodes, materials } = useGLTF(`/models/cafeteria/barandal1.glb`)
   return (
     <group dispose={null}>
       <mesh
@@ -19,4 +17,4 @@ export function Barandal1() {
   );
 }
 
-useGLTF.preload(`${path}/cafeteria/barandal1.glb`)
+useGLTF.preload(`/models/cafeteria/barandal1.glb`)

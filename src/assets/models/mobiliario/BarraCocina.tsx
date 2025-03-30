@@ -1,7 +1,7 @@
 import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 
-const path = "../../../../public/models";
+const path = "/models";
 
 export function BarraCocina() {
   const { nodes, materials } = useGLTF(`${path}/mobiliario/barra-cocina.glb`)

@@ -1,7 +1,7 @@
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
-const path = "../../../../public/models";
+const path = "/models";
 
 export function ColPerimetro() {
 	const { nodes } = useGLTF(`${path}/cafeteria/COL_PERIMETRO.glb`);
